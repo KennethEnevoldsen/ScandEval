@@ -403,7 +403,7 @@ def align_model_and_tokenizer(
         and tokenizer.pad_token_id is not None
     ):
         all_max_lengths.append(
-            model.config.max_position_embeddings - tokenizer.pad_token_id - 1
+            model.config.max_position_embeddings - int(bool(tokenizer.pad_token_id)) - 1
         )
 
     # Add the max length derived from the model's input sizes
