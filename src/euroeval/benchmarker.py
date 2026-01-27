@@ -1029,16 +1029,6 @@ class Benchmarker:
                 if model_config.param is not None:
                     model_id_to_be_stored += f"#{model_config.param}"
 
-                # When we want to evaluate an OpenAI model on a custom inference server,
-                # such as HF inference endpoints, LiteLLM gets confused since it's
-                # already using the `openai/` prefix. We thus have to add it twice, and
-                # this hack here is to ensure that we don't store the results with model
-                # ID `openai/openai/...`.
-                if model_id_to_be_stored.startswith("openai/openai/"):
-                    model_id_to_be_stored = model_id_to_be_stored.replace(
-                        "openai/openai/", "openai/"
-                    )
-
                 record = BenchmarkResult(
                     dataset=dataset_config.name,
                     task=dataset_config.task.name,

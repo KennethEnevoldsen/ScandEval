@@ -11,6 +11,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - We now up the vLLM maximum context length for reasoning models, from 8,192 to
   16,384, to accommodate for reasoning tokens for some datasets that have long documents.
+- We opened up the pinned vLLM version now, now set to version `>=0.14.1`.
+
+### Fixed
+
+- Fixed an issue where a model was incorrectly classified as an encoder model if it had
+  no pipeline tag on the Hugging Face Hub and it relied on a custom implementation that
+  isn't integrated into the `transformers` library.
 
 ## [v16.11.0] - 2026-01-21
 
