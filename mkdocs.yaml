@@ -33,6 +33,7 @@ theme:
     repo: fontawesome/brands/github
     logo: material/chart-bar
 markdown_extensions:
+  - pymdownx.superfences
   - pymdownx.blocks.tab:
       alternate_style: true
 plugins:
